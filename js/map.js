@@ -4,7 +4,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibGV5dGgiLCJhIjoiY2lmYW9zZDZ3Mmg0a3N4bTdia2J0c
 var map = L.mapbox.map('map', 'mapbox.streets').setView([47.708927, -122.312807], 10);
 var myLayer = L.mapbox.featureLayer().addTo(map);
 var timestamp = new Date(3600*24*1000);
-console.log(timestamp);
+
 myLayer.setGeoJSON([{
         type: 'Feature',
         geometry: {
