@@ -1,7 +1,10 @@
+
+
 L.mapbox.accessToken = 'pk.eyJ1IjoibGV5dGgiLCJhIjoiY2lmYW9zZDZ3Mmg0a3N4bTdia2J0cW8zdCJ9.jwo5Yz6jwQO2gRwa_FPu8w';
 var map = L.mapbox.map('map', 'mapbox.streets').setView([47.708927, -122.312807], 10);
 var myLayer = L.mapbox.featureLayer().addTo(map);
-var timestamp = new Date();
+var timestamp = new Date(3600*24*1000);
+console.log(timestamp);
 myLayer.setGeoJSON([{
         type: 'Feature',
         geometry: {
@@ -188,9 +191,7 @@ myLayer.setGeoJSON([{
 
 var info = document.getElementById('info');
 
-// Iterate through each feature layer item, build a
-// marker menu item and enable a click event that pans to + opens
-// a marker that's associated to the marker item.
+
 myLayer.eachLayer(function(marker) {
   var link = info.appendChild(document.createElement('a'));
   link.className = 'item';
@@ -209,9 +210,6 @@ myLayer.eachLayer(function(marker) {
           .replace(/active/, '').replace(/\s\s*$/, '');
       };
       this.className += ' active';
-
-      // When a menu item is clicked, animate the map to center
-      // its associated marker and open its popup.
       map.panTo(marker.getLatLng());
       marker.openPopup();
     }
